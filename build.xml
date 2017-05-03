@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="dist" name="Create Runnable Jar for Project VoltSteeringDumper">
+	
+	<property name="src" location="src" />
+	<property name="build" location="target/classes" />
+	<property name="dist" location="target" />
+	<property name="lib" location="lib" />
+	
+	<target name="init">
+		<mkdir dir="${build}" />
+		<mkdir dir="${dist}" />
+	</target>
+	
+	<target name="compile" depends="init">
+		<javac srcdir="${src}" destdir="${build}" includeantruntime="false" target="1.6" source="1.6">
+			<classpath>
+				<fileset dir="${lib}">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+	
+    <target name="dist" depends="compile">
+        <jar destfile="C:/workspace/VoltSteeringDumper/target/VoltSteeringDumper.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="com.github.voltutils.utils.VoltSteeringDumper"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="C:/workspace/VoltSteeringDumper/target/classes"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/workspace/VoltSteeringDumper/lib/jna.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/workspace/VoltSteeringDumper/lib/log4j-1.2.14.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/workspace/VoltSteeringDumper/lib/platform.jar"/>
+        </jar>
+    </target>
+	
+	<target name="clean">
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+</project>
