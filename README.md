@@ -23,5 +23,8 @@ dumper.kill();
 ### Building ###
 Build with plain old `ant`.  This will create a runnable jar ``VoltSteeringDumper.jar`` in the ``target`` directory.
 
+### A Note on 32-bit Drivers ###
+Since the utilities make use of a 32-bit J2534 driver, a 32-bit JRE is required to make use of them.  Using a 64-bit JRE will result in an ``UnsatisfiedLinkError`` when trying to use the driver.
+
 ## Open Source Code ##
 These utilities make use of the Rom Raider Java API for J2534 (slightly modified).  Source code is found in the `com.romraider` package.  The RomRaider project can be found at <https://github.com/RomRaider/RomRaider>.
