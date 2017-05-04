@@ -22,15 +22,15 @@
 	</target>
 	
     <target name="dist" depends="compile">
-        <jar destfile="C:/workspace/VoltSteeringDumper/target/VoltSteeringDumper.jar" filesetmanifest="mergewithoutmain">
+        <jar destfile="target/VoltSteeringDumper.jar" filesetmanifest="mergewithoutmain">
             <manifest>
                 <attribute name="Main-Class" value="com.github.voltutils.utils.VoltSteeringDumper"/>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="C:/workspace/VoltSteeringDumper/target/classes"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/workspace/VoltSteeringDumper/lib/jna.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/workspace/VoltSteeringDumper/lib/log4j-1.2.14.jar"/>
-            <zipfileset excludes="META-INF/*.SF" src="C:/workspace/VoltSteeringDumper/lib/platform.jar"/>
+            <fileset dir="target/classes"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jna.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/log4j-1.2.14.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/platform.jar"/>
         </jar>
     </target>
 	
